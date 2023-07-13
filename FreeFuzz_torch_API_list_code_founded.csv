@@ -1,4 +1,4 @@
-,Unnamed: 0,API Name,Source Code,label
+,Unnamed: 0,API Name,Source Code,label,
 0,0,torch.nn.Hardshrink,"class Hardshrink(Module):
     r""""""Applies the Hard Shrinkage (Hardshrink) function element-wise.
 
@@ -39,8 +39,8 @@
 
     def extra_repr(self) -> str:
         return '{}'.format(self.lambd)
-",1
-1,1,torch.inverse,,0
+",1,
+1,1,torch.inverse,,0,
 2,2,torch.nn.functional.max_pool2d,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -52,9 +52,9 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-3,3,torch.std,,0
-4,4,torch.isfinite,,0
+",1,
+3,3,torch.std,,0,
+4,4,torch.isfinite,,0,
 5,5,torch.nn.AdaptiveMaxPool2d,"class AdaptiveMaxPool2d(_AdaptiveMaxPoolNd):
     r""""""Applies a 2D adaptive max pooling over an input signal composed of several input planes.
 
@@ -95,9 +95,9 @@
 
     def forward(self, input: Tensor):
         return F.adaptive_max_pool2d(input, self.output_size, self.return_indices)
-",1
-6,6,torch.expm1,"Tensor expm1(const Tensor& self) { return unary_op_impl_float(self, expm1_stub); }",3
-7,7,torch.can_cast,,0
+",1,
+6,6,torch.expm1,"Tensor expm1(const Tensor& self) { return unary_op_impl_float(self, expm1_stub); }",3,
+7,7,torch.can_cast,,0,
 8,8,torch.nn.NLLLoss,"class NLLLoss(_WeightedLoss):
     r""""""The negative log likelihood loss. It is useful to train a classification
     problem with `C` classes.
@@ -211,8 +211,8 @@
 
     def forward(self, input: Tensor, target: Tensor) -> Tensor:
         return F.nll_loss(input, target, weight=self.weight, ignore_index=self.ignore_index, reduction=self.reduction)
-",1
-9,9,torch.addmv,,0
+",1,
+9,9,torch.addmv,,0,
 10,10,torch.nn.functional.local_response_norm,"def local_response_norm(input: Tensor, size: int, alpha: float = 1e-4, beta: float = 0.75, k: float = 1.0) -> Tensor:
     r""""""Applies local response normalization over an input signal composed of
     several input planes, where channels occupy the second dimension.
@@ -247,7 +247,7 @@
         div = div.view(sizes)
     div = div.mul(alpha).add(k).pow(beta)
     return input / div
-",1
+",1,
 11,11,torch.norm,"def norm(input, p: Optional[Union[float, str]] = ""fro"", dim=None, keepdim=False, out=None, dtype=None):  # noqa: F811
     r""""""Returns the matrix norm or vector norm of a given tensor.
 
@@ -443,8 +443,8 @@
                 return _VF.norm(input, p, _dim, keepdim=keepdim, out=out)  # type: ignore[attr-defined]
             else:
                 return _VF.norm(input, p, _dim, keepdim=keepdim, dtype=dtype, out=out)  # type: ignore[attr-defined]
-",1
-12,12,torch.logaddexp2,,0
+",1,
+12,12,torch.logaddexp2,,0,
 13,13,torch.nn.functional.lp_pool1d,"def lp_pool1d(
     input: Tensor, norm_type: Union[int, float],
     kernel_size: int,
@@ -467,8 +467,8 @@
         out = avg_pool1d(input.pow(norm_type), kernel_size, padding=0, ceil_mode=ceil_mode)
 
     return (torch.sign(out) * relu(torch.abs(out))).mul(kernel_size).pow(1.0 / norm_type)
-",1
-14,14,torch.nn.functional.elu_,,0
+",1,
+14,14,torch.nn.functional.elu_,,0,
 15,15,torch.nn.BatchNorm3d,"class BatchNorm3d(_BatchNorm):
     r""""""Applies Batch Normalization over a 5D input (a mini-batch of 3D inputs
     with additional channel dimension) as described in the paper
@@ -540,8 +540,8 @@
     def _check_input_dim(self, input):
         if input.dim() != 5:
             raise ValueError(""expected 5D input (got {}D input)"".format(input.dim()))
-",1
-16,16,torch.as_tensor,,0
+",1,
+16,16,torch.as_tensor,,0,
 17,17,torch.split,"def split(
     tensor: Tensor, split_size_or_sections: Union[int, List[int]], dim: int = 0
 ) -> List[Tensor]:
@@ -592,7 +592,7 @@
     # split_size_or_sections. The branching code is in _tensor.py, which we
     # call here.
     return tensor.split(split_size_or_sections, dim)
-",1
+",1,
 18,18,torch.nn.MultiLabelSoftMarginLoss,"class MultiLabelSoftMarginLoss(_WeightedLoss):
     r""""""Creates a criterion that optimizes a multi-label one-versus-all
     loss based on max-entropy, between input :math:`x` and target :math:`y` of size
@@ -638,7 +638,7 @@
 
     def forward(self, input: Tensor, target: Tensor) -> Tensor:
         return F.multilabel_soft_margin_loss(input, target, weight=self.weight, reduction=self.reduction)
-",1
+",1,
 19,19,torch.atleast_3d,"def atleast_3d(*tensors):
     r""""""
     Returns a 3-dimensional view of each input tensor with zero dimensions.
@@ -683,8 +683,8 @@
     if len(tensors) == 1:
         tensors = tensors[0]
     return _VF.atleast_3d(tensors)  # type: ignore[attr-defined]
-",1
-20,20,torch.tensor_split,,0
+",1,
+20,20,torch.tensor_split,,0,
 21,21,torch.nn.functional.embedding,"def embedding(
     input: Tensor,
     weight: Tensor,
@@ -787,10 +787,10 @@
         # remove once script supports set_grad_enabled
         _no_grad_embedding_renorm_(weight, input, max_norm, norm_type)
     return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
-",1
-22,22,torch.eye,,0
-23,23,torch.nn.functional.pixel_shuffle,,0
-24,24,torch.bernoulli,,0
+",1,
+22,22,torch.eye,,0,
+23,23,torch.nn.functional.pixel_shuffle,,0,
+24,24,torch.bernoulli,,0,
 25,25,torch.nn.functional.alpha_dropout,"def alpha_dropout(input: Tensor, p: float = 0.5, training: bool = False, inplace: bool = False) -> Tensor:
     r""""""Applies alpha dropout to the input.
 
@@ -801,7 +801,7 @@
     if p < 0.0 or p > 1.0:
         raise ValueError(""dropout probability has to be between 0 and 1, "" ""but got {}"".format(p))
     return _VF.alpha_dropout_(input, p, training) if inplace else _VF.alpha_dropout(input, p, training)
-",1
+",1,
 26,26,torch.nn.functional.log_softmax,"def log_softmax(input: Tensor, dim: Optional[int] = None, _stacklevel: int = 3, dtype: Optional[DType] = None) -> Tensor:
     r""""""Applies a softmax followed by a logarithm.
 
@@ -827,9 +827,9 @@
     else:
         ret = input.log_softmax(dim, dtype=dtype)
     return ret
-",1
-27,27,torch.trace,,0
-28,28,torch.asin,"Tensor asin(const Tensor& self) { return unary_op_impl_float(self, asin_stub); }",3
+",1,
+27,27,torch.trace,,0,
+28,28,torch.asin,"Tensor asin(const Tensor& self) { return unary_op_impl_float(self, asin_stub); }",3,
 29,29,torch.nn.ConstantPad1d,"class ConstantPad1d(_ConstantPadNd):
     r""""""Pads the input tensor boundaries with a constant value.
 
@@ -879,7 +879,7 @@
     def __init__(self, padding: _size_2_t, value: float):
         super().__init__(value)
         self.padding = _pair(padding)
-",1
+",1,
 30,30,torch.nn.LPPool2d,"class LPPool2d(_LPPoolNd):
     r""""""Applies a 2D power-average pooling over an input signal composed of several input
     planes.
@@ -933,8 +933,8 @@
     def forward(self, input: Tensor) -> Tensor:
         return F.lp_pool2d(input, float(self.norm_type), self.kernel_size,
                            self.stride, self.ceil_mode)
-",1
-31,31,torch.dist,,0
+",1,
+31,31,torch.dist,,0,
 32,32,torch.nn.functional.threshold,"def _threshold(input: Tensor, threshold: float, value: float, inplace: bool = False) -> Tensor:
     r""""""Thresholds each element of the input Tensor.
 
@@ -947,7 +947,7 @@
     else:
         result = _VF.threshold(input, threshold, value)
     return result
-",1
+",1,
 33,33,torch.nn.functional.relu6,"def relu6(input: Tensor, inplace: bool = False) -> Tensor:
     r""""""relu6(input, inplace=False) -> Tensor
 
@@ -962,8 +962,8 @@
     else:
         result = torch._C._nn.relu6(input)
     return result
-",1
-34,34,torch.amin,,0
+",1,
+34,34,torch.amin,,0,
 35,35,torch.nn.Fold,"class Fold(Module):
     r""""""Combines an array of sliding local blocks into a large containing
     tensor.
@@ -1108,13 +1108,13 @@
             'dilation={dilation}, padding={padding}, stride={stride}'.format(
                 **self.__dict__
             )
-",1
-36,36,torch.cholesky_solve,,0
-37,37,torch.cos,"Tensor cos(const Tensor& self) { return unary_op_impl_float(self, cos_stub); }",3
-38,38,torch.mv,,0
-39,39,torch.median,,0
-40,40,torch.zeros,"Tensor zeros() { return at::zeros(sizes, options); }",3
-41,41,torch.take,,0
+",1,
+36,36,torch.cholesky_solve,,0,
+37,37,torch.cos,"Tensor cos(const Tensor& self) { return unary_op_impl_float(self, cos_stub); }",3,
+38,38,torch.mv,,0,
+39,39,torch.median,,0,
+40,40,torch.zeros,"Tensor zeros() { return at::zeros(sizes, options); }",3,
+41,41,torch.take,,0,
 42,42,torch.nn.L1Loss,"class L1Loss(_Loss):
     r""""""Creates a criterion that measures the mean absolute error (MAE) between each element in
     the input :math:`x` and target :math:`y`.
@@ -1182,9 +1182,9 @@
 
     def forward(self, input: Tensor, target: Tensor) -> Tensor:
         return F.l1_loss(input, target, reduction=self.reduction)
-",1
-43,43,torch.log,"Tensor log(const Tensor& self) { return unary_op_impl_float(self, log_stub); }",3
-44,44,torch.cat,,0
+",1,
+43,43,torch.log,"Tensor log(const Tensor& self) { return unary_op_impl_float(self, log_stub); }",3,
+44,44,torch.cat,,0,
 45,45,torch.nn.functional.selu,"def selu(input: Tensor, inplace: bool = False) -> Tensor:
     r""""""selu(input, inplace=False) -> Tensor
 
@@ -1202,13 +1202,13 @@
     else:
         result = torch.selu(input)
     return result
-",1
-46,46,torch.nn.functional.pad,,0
-47,47,torch.gt,"Tensor gt(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::gt_out)); }",3
-48,48,torch.floor_divide,,0
-49,49,torch.nn.functional.avg_pool3d,,0
-50,50,torch.isinf,,0
-51,51,torch.logsumexp,,0
+",1,
+46,46,torch.nn.functional.pad,,0,
+47,47,torch.gt,"Tensor gt(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::gt_out)); }",3,
+48,48,torch.floor_divide,,0,
+49,49,torch.nn.functional.avg_pool3d,,0,
+50,50,torch.isinf,,0,
+51,51,torch.logsumexp,,0,
 52,52,torch.nn.TripletMarginLoss,"class TripletMarginLoss(_Loss):
     r""""""Creates a criterion that measures the triplet loss given an input
     tensors :math:`x1`, :math:`x2`, :math:`x3` and a margin with a value greater than :math:`0`.
@@ -1291,8 +1291,8 @@
     def forward(self, anchor: Tensor, positive: Tensor, negative: Tensor) -> Tensor:
         return F.triplet_margin_loss(anchor, positive, negative, margin=self.margin, p=self.p,
                                      eps=self.eps, swap=self.swap, reduction=self.reduction)
-",1
-53,53,torch.copysign,"float copysign(float x, float y) { return __builtin_copysignf(x, y); }",3
+",1,
+53,53,torch.copysign,"float copysign(float x, float y) { return __builtin_copysignf(x, y); }",3,
 54,54,torch.nn.Dropout2d,"class Dropout2d(_DropoutNd):
     r""""""Randomly zero out entire channels (a channel is a 2D feature map,
     e.g., the :math:`j`-th channel of the :math:`i`-th sample in the
@@ -1340,8 +1340,8 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.dropout2d(input, self.p, self.training, self.inplace)
-",1
-55,55,torch.addmm,,0
+",1,
+55,55,torch.addmm,,0,
 56,56,torch.nn.utils.clip_grad_norm_,"def clip_grad_norm_(
         parameters: _tensor_or_tensors, max_norm: float, norm_type: float = 2.0,
         error_if_nonfinite: bool = False, foreach: Optional[bool] = None) -> torch.Tensor:
@@ -1415,7 +1415,7 @@
                 g.detach().mul_(clip_coef_clamped_device)
 
     return total_norm
-",1
+",1,
 57,57,torch.nn.MultiheadAttention,"class MultiheadAttention(Module):
     r""""""Allows the model to jointly attend to information
     from different representation subspaces as described in the paper:
@@ -1797,11 +1797,11 @@
 
         # no attn_mask and no key_padding_mask, returns None, None
         return merged_mask, mask_type
-",1
-58,58,torch.maximum,,0
-59,59,torch.multinomial,,0
-60,60,torch.linspace,,0
-61,61,torch.sin,"Tensor sin(const Tensor& self) { return unary_op_impl_float(self, sin_stub); }",3
+",1,
+58,58,torch.maximum,,0,
+59,59,torch.multinomial,,0,
+60,60,torch.linspace,,0,
+61,61,torch.sin,"Tensor sin(const Tensor& self) { return unary_op_impl_float(self, sin_stub); }",3,
 62,62,torch.nn.PairwiseDistance,"class PairwiseDistance(Module):
     r""""""
     Computes the pairwise distance between input vectors, or between columns of input matrices.
@@ -1848,7 +1848,7 @@
 
     def forward(self, x1: Tensor, x2: Tensor) -> Tensor:
         return F.pairwise_distance(x1, x2, self.norm, self.eps, self.keepdim)
-",1
+",1,
 63,63,torch.nn.functional.binary_cross_entropy,"def binary_cross_entropy(
     input: Tensor,
     target: Tensor,
@@ -1916,9 +1916,9 @@
         weight = weight.expand(new_size)
 
     return torch._C._nn.binary_cross_entropy(input, target, weight, reduction_enum)
-",1
-64,64,torch.mean,,0
-65,65,torch.cumsum,,0
+",1,
+64,64,torch.mean,,0,
+65,65,torch.cumsum,,0,
 66,66,torch.nn.AdaptiveMaxPool1d,"class AdaptiveMaxPool1d(_AdaptiveMaxPoolNd):
     r""""""Applies a 1D adaptive max pooling over an input signal composed of several input planes.
 
@@ -1947,11 +1947,11 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.adaptive_max_pool1d(input, self.output_size, self.return_indices)
-",1
-67,67,torch.randint,,0
-68,68,torch.reshape,,0
-69,69,torch.unbind,,0
-70,70,torch.acos,"Tensor acos(const Tensor& self) { return unary_op_impl_float(self, acos_stub); }",3
+",1,
+67,67,torch.randint,,0,
+68,68,torch.reshape,,0,
+69,69,torch.unbind,,0,
+70,70,torch.acos,"Tensor acos(const Tensor& self) { return unary_op_impl_float(self, acos_stub); }",3,
 71,71,torch.nn.CosineSimilarity,"class CosineSimilarity(Module):
     r""""""Returns cosine similarity between :math:`x_1` and :math:`x_2`, computed along `dim`.
 
@@ -1984,7 +1984,7 @@
 
     def forward(self, x1: Tensor, x2: Tensor) -> Tensor:
         return F.cosine_similarity(x1, x2, self.dim, self.eps)
-",1
+",1,
 72,72,torch.nn.functional.leaky_relu,"def leaky_relu(input: Tensor, negative_slope: float = 0.01, inplace: bool = False) -> Tensor:
     r""""""
     leaky_relu(input, negative_slope=0.01, inplace=False) -> Tensor
@@ -2001,7 +2001,7 @@
     else:
         result = torch._C._nn.leaky_relu(input, negative_slope)
     return result
-",1
+",1,
 73,73,torch.nn.functional.binary_cross_entropy_with_logits,"def binary_cross_entropy_with_logits(
     input: Tensor,
     target: Tensor,
@@ -2067,7 +2067,7 @@
         raise ValueError(""Target size ({}) must be the same as input size ({})"".format(target.size(), input.size()))
 
     return torch.binary_cross_entropy_with_logits(input, target, weight, pos_weight, reduction_enum)
-",1
+",1,
 74,74,torch.nn.ReflectionPad2d,"class ReflectionPad2d(_ReflectionPadNd):
     r""""""Pads the input tensor using the reflection of the input boundary.
 
@@ -2118,7 +2118,7 @@
     def __init__(self, padding: _size_4_t) -> None:
         super().__init__()
         self.padding = _quadruple(padding)
-",1
+",1,
 75,75,torch.nn.Flatten,"class Flatten(Module):
     r""""""
     Flattens a contiguous range of dims into a tensor. For use with :class:`~nn.Sequential`.
@@ -2162,11 +2162,11 @@
         return 'start_dim={}, end_dim={}'.format(
             self.start_dim, self.end_dim
         )
-",1
-76,76,torch.sigmoid,"Tensor sigmoid(const Tensor& self) { return unary_op_impl_float(self, sigmoid_stub);  }",3
-77,77,torch.rad2deg,"Tensor rad2deg(const Tensor& self) { return unary_op_impl(self, at::rad2deg_out); }",3
-78,78,torch.nn.functional.conv2d,,0
-79,79,torch.randn,,0
+",1,
+76,76,torch.sigmoid,"Tensor sigmoid(const Tensor& self) { return unary_op_impl_float(self, sigmoid_stub);  }",3,
+77,77,torch.rad2deg,"Tensor rad2deg(const Tensor& self) { return unary_op_impl(self, at::rad2deg_out); }",3,
+78,78,torch.nn.functional.conv2d,,0,
+79,79,torch.randn,,0,
 80,80,torch.broadcast_tensors,"def broadcast_tensors(*tensors):
     r""""""broadcast_tensors(*tensors) -> List of Tensors
 
@@ -2197,7 +2197,7 @@
     if has_torch_function(tensors):
         return handle_torch_function(broadcast_tensors, tensors, *tensors)
     return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
-",1
+",1,
 81,81,torch.nn.ConstantPad2d,"class ConstantPad2d(_ConstantPadNd):
     r""""""Pads the input tensor boundaries with a constant value.
 
@@ -2247,11 +2247,11 @@
     def __init__(self, padding: _size_4_t, value: float) -> None:
         super().__init__(value)
         self.padding = _quadruple(padding)
-",1
-82,82,torch.promote_types,,0
-83,83,torch.inner,,0
-84,84,torch.mvlgamma,,0
-85,85,torch.le,"Tensor le(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::le_out)); }",3
+",1,
+82,82,torch.promote_types,,0,
+83,83,torch.inner,,0,
+84,84,torch.mvlgamma,,0,
+85,85,torch.le,"Tensor le(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::le_out)); }",3,
 86,86,torch.nn.Softshrink,"class Softshrink(Module):
     r""""""Applies the soft shrinkage function elementwise:
 
@@ -2290,8 +2290,8 @@
 
     def extra_repr(self) -> str:
         return str(self.lambd)
-",1
-87,87,torch.view_as_real,,0
+",1,
+87,87,torch.view_as_real,,0,
 88,88,torch.nn.AdaptiveAvgPool2d,"class AdaptiveAvgPool2d(_AdaptiveAvgPoolNd):
     r""""""Applies a 2D adaptive average pooling over an input signal composed of several input planes.
 
@@ -2329,9 +2329,9 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.adaptive_avg_pool2d(input, self.output_size)
-",1
-89,89,torch.nn.functional.conv_transpose3d,,0
-90,90,torch.std_mean,,0
+",1,
+89,89,torch.nn.functional.conv_transpose3d,,0,
+90,90,torch.std_mean,,0,
 91,91,torch.nn.ConvTranspose2d,"class ConvTranspose2d(_ConvTransposeNd):
     __doc__ = r""""""Applies a 2D transposed convolution operator over an input image
     composed of several input planes.
@@ -2485,9 +2485,9 @@
         return F.conv_transpose2d(
             input, self.weight, self.bias, self.stride, self.padding,
             output_padding, self.groups, self.dilation)
-",1
-92,92,torch.allclose,,0
-93,93,torch.normal,,0
+",1,
+92,92,torch.allclose,,0,
+93,93,torch.normal,,0,
 94,94,torch.nn.Hardswish,"class Hardswish(Module):
     r""""""Applies the Hardswish function, element-wise, as described in the paper:
     `Searching for MobileNetV3 <https://arxiv.org/abs/1905.02244>`_.
@@ -2526,7 +2526,7 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.hardswish(input, self.inplace)
-",1
+",1,
 95,95,torch.nn.AdaptiveAvgPool1d,"class AdaptiveAvgPool1d(_AdaptiveAvgPoolNd):
     r""""""Applies a 1D adaptive average pooling over an input signal composed of several input planes.
 
@@ -2553,7 +2553,7 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.adaptive_avg_pool1d(input, self.output_size)
-",1
+",1,
 96,96,torch.nn.functional.adaptive_avg_pool3d,"def adaptive_avg_pool3d(input: Tensor, output_size: BroadcastingList3[int]) -> Tensor:
     r""""""
     Applies a 3D adaptive average pooling over an input signal composed of
@@ -2569,9 +2569,9 @@
         return handle_torch_function(adaptive_avg_pool3d, (input,), input, output_size)
     _output_size = _list_with_default(output_size, input.size())
     return torch._C._nn.adaptive_avg_pool3d(input, _output_size)
-",1
-97,97,torch.cholesky,,0
-98,98,torch.msort,,0
+",1,
+97,97,torch.cholesky,,0,
+98,98,torch.msort,,0,
 99,99,torch.nn.Tanhshrink,"class Tanhshrink(Module):
     r""""""Applies the element-wise function:
 
@@ -2593,8 +2593,8 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.tanhshrink(input)
-",1
-100,100,torch.neg,"Tensor neg(const Tensor& self) { return unary_op_impl(self, at::neg_out); }",3
+",1,
+100,100,torch.neg,"Tensor neg(const Tensor& self) { return unary_op_impl(self, at::neg_out); }",3,
 101,101,torch.nn.functional.batch_norm,"def batch_norm(
     input: Tensor,
     running_mean: Optional[Tensor],
@@ -2629,7 +2629,7 @@
     return torch.batch_norm(
         input, weight, bias, running_mean, running_var, training, momentum, eps, torch.backends.cudnn.enabled
     )
-",1
+",1,
 102,102,torch.nn.Conv1d,"class Conv1d(_ConvNd):
     __doc__ = r""""""Applies a 1D convolution over an input signal composed of several input
     planes.
@@ -2764,7 +2764,7 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return self._conv_forward(input, self.weight, self.bias)
-",1
+",1,
 103,103,torch.nn.functional.tanh,"def tanh(input):
     r""""""tanh(input) -> Tensor
 
@@ -2774,7 +2774,7 @@
     See :class:`~torch.nn.Tanh` for more details.
     """"""
     return input.tanh()
-",1
+",1,
 104,104,torch.unique_consecutive,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -2786,9 +2786,9 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-105,105,torch.heaviside,,0
-106,106,torch.fliplr,,0
+",1,
+105,105,torch.heaviside,,0,
+106,106,torch.fliplr,,0,
 107,107,torch.nn.AvgPool1d,"class AvgPool1d(_AvgPoolNd):
     r""""""Applies a 1D average pooling over an input signal composed of several
     input planes.
@@ -2854,8 +2854,8 @@
         return F.avg_pool1d(
             input, self.kernel_size, self.stride, self.padding, self.ceil_mode,
             self.count_include_pad)
-",1
-108,108,torch.diagflat,,0
+",1,
+108,108,torch.diagflat,,0,
 109,109,torch.nn.functional.silu,"def silu(input: Tensor, inplace: bool = False) -> Tensor:
     r""""""Applies the Sigmoid Linear Unit (SiLU) function, element-wise.
     The SiLU function is also known as the swish function.
@@ -2878,11 +2878,11 @@
     if inplace:
         return torch._C._nn.silu_(input)
     return torch._C._nn.silu(input)
-",1
-110,110,torch.det,,0
-111,111,torch.vdot,,0
-112,112,torch.gather,,0
-113,113,torch.nanquantile,,0
+",1,
+110,110,torch.det,,0,
+111,111,torch.vdot,,0,
+112,112,torch.gather,,0,
+113,113,torch.nanquantile,,0,
 114,114,torch.nn.functional.max_unpool3d,"def max_unpool3d(
     input: Tensor, indices: Tensor,
     kernel_size: BroadcastingList3[int],
@@ -2913,8 +2913,8 @@
     padding = _triple(padding)
     output_size = _unpool_output_size(input, kernel_size, _stride, padding, output_size)
     return torch._C._nn.max_unpool3d(input, indices, output_size, _stride, padding)
-",1
-115,115,torch.is_nonzero,,0
+",1,
+115,115,torch.is_nonzero,,0,
 116,116,torch.nn.Hardtanh,"class Hardtanh(Module):
     r""""""Applies the HardTanh function element-wise.
 
@@ -2982,14 +2982,14 @@
         return 'min_val={}, max_val={}{}'.format(
             self.min_val, self.max_val, inplace_str
         )
-",1
-117,117,torch.argsort,,0
-118,118,torch.chunk,,0
-119,119,torch.isneginf,,0
-120,120,torch.argmin,,0
-121,121,torch.swapdims,,0
-122,122,torch.floor,"Tensor floor(const Tensor& self) { return unary_op_impl(self, at::floor_out); }",3
-123,123,torch.polar,,0
+",1,
+117,117,torch.argsort,,0,
+118,118,torch.chunk,,0,
+119,119,torch.isneginf,,0,
+120,120,torch.argmin,,0,
+121,121,torch.swapdims,,0,
+122,122,torch.floor,"Tensor floor(const Tensor& self) { return unary_op_impl(self, at::floor_out); }",3,
+123,123,torch.polar,,0,
 124,124,torch.nn.ReplicationPad2d,"class ReplicationPad2d(_ReplicationPadNd):
     r""""""Pads the input tensor using replication of the input boundary.
 
@@ -3040,12 +3040,12 @@
     def __init__(self, padding: _size_4_t) -> None:
         super().__init__()
         self.padding = _quadruple(padding)
-",1
-125,125,torch.broadcast_to,,0
-126,126,torch.index_select,,0
-127,127,torch.quantile,,0
-128,128,torch.square,"Tensor square(const Tensor& self) { return at::pow(self, 2); }",3
-129,129,torch.logspace,,0
+",1,
+125,125,torch.broadcast_to,,0,
+126,126,torch.index_select,,0,
+127,127,torch.quantile,,0,
+128,128,torch.square,"Tensor square(const Tensor& self) { return at::pow(self, 2); }",3,
+129,129,torch.logspace,,0,
 130,130,torch.nn.FractionalMaxPool2d,"class FractionalMaxPool2d(Module):
     r""""""Applies a 2D fractional max pooling over an input signal composed of several input planes.
 
@@ -3114,10 +3114,10 @@
             input, self.kernel_size, self.output_size, self.output_ratio,
             self.return_indices,
             _random_samples=self._random_samples)
-",1
-131,131,torch.nn.functional.conv3d,,0
-132,132,torch.sqrt,"Tensor sqrt(const Tensor& self) { return unary_op_impl_float(self, sqrt_stub); }",3
-133,133,torch.full_like,,0
+",1,
+131,131,torch.nn.functional.conv3d,,0,
+132,132,torch.sqrt,"Tensor sqrt(const Tensor& self) { return unary_op_impl_float(self, sqrt_stub); }",3,
+133,133,torch.full_like,,0,
 134,134,torch.nn.AvgPool2d,"class AvgPool2d(_AvgPoolNd):
     r""""""Applies a 2D average pooling over an input signal composed of several input
     planes.
@@ -3195,8 +3195,8 @@
     def forward(self, input: Tensor) -> Tensor:
         return F.avg_pool2d(input, self.kernel_size, self.stride,
                             self.padding, self.ceil_mode, self.count_include_pad, self.divisor_override)
-",1
-135,135,torch.view_as_complex,,0
+",1,
+135,135,torch.view_as_complex,,0,
 136,136,torch.nn.functional.mse_loss,"def mse_loss(
     input: Tensor,
     target: Tensor,
@@ -3226,8 +3226,8 @@
 
     expanded_input, expanded_target = torch.broadcast_tensors(input, target)
     return torch._C._nn.mse_loss(expanded_input, expanded_target, _Reduction.get_enum(reduction))
-",1
-137,137,torch.nn.functional.logsigmoid,,0
+",1,
+137,137,torch.nn.functional.logsigmoid,,0,
 138,138,torch.nn.LSTM,"class LSTM(RNNBase):
     r""""""Applies a multi-layer long short-term memory (LSTM) RNN to an input
     sequence.
@@ -3505,7 +3505,7 @@
                 output = output.squeeze(batch_dim)
                 hidden = (hidden[0].squeeze(1), hidden[1].squeeze(1))
             return output, self.permute_hidden(hidden, unsorted_indices)
-",1
+",1,
 139,139,torch.nn.LPPool1d,"class LPPool1d(_LPPoolNd):
     r""""""Applies a 1D power-average pooling over an input signal composed of several input
     planes.
@@ -3546,7 +3546,7 @@
     def forward(self, input: Tensor) -> Tensor:
         return F.lp_pool1d(input, float(self.norm_type), self.kernel_size,
                            self.stride, self.ceil_mode)
-",1
+",1,
 140,140,torch.nn.Dropout3d,"class Dropout3d(_DropoutNd):
     r""""""Randomly zero out entire channels (a channel is a 3D feature map,
     e.g., the :math:`j`-th channel of the :math:`i`-th sample in the
@@ -3587,16 +3587,16 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.dropout3d(input, self.p, self.training, self.inplace)
-",1
-141,141,torch.nn.functional.conv_transpose2d,,0
+",1,
+141,141,torch.nn.functional.conv_transpose2d,,0,
 142,142,torch.solve,"def solve(input: Tensor, A: Tensor, *, out=None) -> Tuple[Tensor, Tensor]:
     raise RuntimeError(
         ""This function was deprecated since version 1.9 and is now removed. Please use the `torch.linalg.solve` function instead."",
     )
-",1
-143,143,torch.zeros_like,,0
-144,144,torch.minimum,,0
-145,145,torch.nanmedian,,0
+",1,
+143,143,torch.zeros_like,,0,
+144,144,torch.minimum,,0,
+145,145,torch.nanmedian,,0,
 146,146,torch.broadcast_shapes,"def broadcast_shapes(*shapes):
     r""""""broadcast_shapes(*shapes) -> Size
 
@@ -3658,7 +3658,7 @@
             tensors = [scalar.expand(shape) for shape in shapes]
             tensors = broadcast_tensors(*tensors)
             return tensors[0].shape
-",1
+",1,
 147,147,torch.nn.InstanceNorm2d,"class InstanceNorm2d(_InstanceNorm):
     r""""""Applies Instance Normalization over a 4D input (a mini-batch of 2D inputs
     with additional channel dimension) as described in the paper
@@ -3734,8 +3734,8 @@
         if input.dim() not in (3, 4):
             raise ValueError('expected 3D or 4D input (got {}D input)'
                              .format(input.dim()))
-",1
-148,148,torch.nn.functional.gelu,,0
+",1,
+148,148,torch.nn.functional.gelu,,0,
 149,149,torch.nn.MarginRankingLoss,"class MarginRankingLoss(_Loss):
     r""""""Creates a criterion that measures the loss given
     inputs :math:`x1`, :math:`x2`, two 1D mini-batch or 0D `Tensors`,
@@ -3791,8 +3791,8 @@
 
     def forward(self, input1: Tensor, input2: Tensor, target: Tensor) -> Tensor:
         return F.margin_ranking_loss(input1, input2, target, margin=self.margin, reduction=self.reduction)
-",1
-150,150,torch.add,"int add(int a, int b) {return a + b;}",3
+",1,
+150,150,torch.add,"int add(int a, int b) {return a + b;}",3,
 151,151,torch.nn.Softsign,"class Softsign(Module):
     r""""""Applies the element-wise function:
 
@@ -3814,8 +3814,8 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.softsign(input)
-",1
-152,152,torch.sort,,0
+",1,
+152,152,torch.sort,,0,
 153,153,torch.nn.functional.poisson_nll_loss,"def poisson_nll_loss(
     input: Tensor,
     target: Tensor,
@@ -3879,9 +3879,9 @@
 
     ret = torch.poisson_nll_loss(input, target, log_input, full, eps, _Reduction.get_enum(reduction))
     return ret
-",1
-154,154,torch.dot,,0
-155,155,torch.cross,,0
+",1,
+154,154,torch.dot,,0,
+155,155,torch.cross,,0,
 156,156,torch.nn.MSELoss,"class MSELoss(_Loss):
     r""""""Creates a criterion that measures the mean squared error (squared L2 norm) between
     each element in the input :math:`x` and target :math:`y`.
@@ -3945,7 +3945,7 @@
 
     def forward(self, input: Tensor, target: Tensor) -> Tensor:
         return F.mse_loss(input, target, reduction=self.reduction)
-",1
+",1,
 157,157,torch.nn.InstanceNorm3d,"class InstanceNorm3d(_InstanceNorm):
     r""""""Applies Instance Normalization over a 5D input (a mini-batch of 3D inputs
     with additional channel dimension) as described in the paper
@@ -4021,9 +4021,9 @@
         if input.dim() not in (4, 5):
             raise ValueError('expected 4D or 5D input (got {}D input)'
                              .format(input.dim()))
-",1
-158,158,torch.transpose,,0
-159,159,torch.logcumsumexp,,0
+",1,
+158,158,torch.transpose,,0,
+159,159,torch.logcumsumexp,,0,
 160,160,torch.nn.PixelShuffle,"class PixelShuffle(Module):
     r""""""Rearranges elements in a tensor of shape :math:`(*, C \times r^2, H, W)`
     to a tensor of shape :math:`(*, C, H \times r, W \times r)`, where r is an upscale factor.
@@ -4074,11 +4074,11 @@
 
     def extra_repr(self) -> str:
         return 'upscale_factor={}'.format(self.upscale_factor)
-",1
-161,161,torch.sign,"Tensor sign(const Tensor& self) { return unary_op_impl(self, at::sign_out); }",3
-162,162,torch.round,"Tensor round(const Tensor& self) { return unary_op_impl(self, at::round_out); }",3
-163,163,torch.result_type,,0
-164,164,torch.kthvalue,,0
+",1,
+161,161,torch.sign,"Tensor sign(const Tensor& self) { return unary_op_impl(self, at::sign_out); }",3,
+162,162,torch.round,"Tensor round(const Tensor& self) { return unary_op_impl(self, at::round_out); }",3,
+163,163,torch.result_type,,0,
+164,164,torch.kthvalue,,0,
 165,165,torch.nn.Softmax2d,"class Softmax2d(Module):
     r""""""Applies SoftMax over features to each spatial location.
 
@@ -4104,7 +4104,7 @@
     def forward(self, input: Tensor) -> Tensor:
         assert input.dim() == 4 or input.dim() == 3, 'Softmax2d requires a 3D or 4D tensor as input'
         return F.softmax(input, -3, _stacklevel=5)
-",1
+",1,
 166,166,torch.nn.MaxPool1d,"class MaxPool1d(_MaxPoolNd):
     r""""""Applies a 1D max pooling over an input signal composed of several input
     planes.
@@ -4162,7 +4162,7 @@
         return F.max_pool1d(input, self.kernel_size, self.stride,
                             self.padding, self.dilation, ceil_mode=self.ceil_mode,
                             return_indices=self.return_indices)
-",1
+",1,
 167,167,torch.nn.functional.max_pool1d,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -4174,8 +4174,8 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-168,168,torch.nn.functional.rrelu_,,0
+",1,
+168,168,torch.nn.functional.rrelu_,,0,
 169,169,torch.nn.AlphaDropout,"class AlphaDropout(_DropoutNd):
     r""""""Applies Alpha Dropout over the input.
 
@@ -4216,10 +4216,10 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.alpha_dropout(input, self.p, self.training)
-",1
-170,170,torch.var,,0
-171,171,torch.isposinf,,0
-172,172,torch.svd,,0
+",1,
+170,170,torch.var,,0,
+171,171,torch.isposinf,,0,
+172,172,torch.svd,,0,
 173,173,torch.nn.functional.adaptive_avg_pool2d,"def adaptive_avg_pool2d(input: Tensor, output_size: BroadcastingList2[int]) -> Tensor:
     r""""""
     Applies a 2D adaptive average pooling over an input signal composed of
@@ -4235,8 +4235,8 @@
         return handle_torch_function(adaptive_avg_pool2d, (input,), input, output_size)
     _output_size = _list_with_default(output_size, input.size())
     return torch._C._nn.adaptive_avg_pool2d(input, _output_size)
-",1
-174,174,torch.set_num_threads,,0
+",1,
+174,174,torch.set_num_threads,,0,
 175,175,torch.nn.functional.sigmoid,"def sigmoid(input):
     r""""""sigmoid(input) -> Tensor
 
@@ -4245,8 +4245,8 @@
     See :class:`~torch.nn.Sigmoid` for more details.
     """"""
     return input.sigmoid()
-",1
-176,176,torch.nextafter,,0
+",1,
+176,176,torch.nextafter,,0,
 177,177,torch.nn.LSTMCell,"class LSTMCell(RNNCellBase):
     r""""""A long short-term memory (LSTM) cell.
 
@@ -4334,11 +4334,11 @@
         if not is_batched:
             ret = (ret[0].squeeze(0), ret[1].squeeze(0))
         return ret
-",1
-178,178,torch.cosh,"Tensor cosh(const Tensor& self) { return unary_op_impl_float(self, cosh_stub); }",3
-179,179,torch.addbmm,,0
-180,180,torch.lt,"Tensor lt(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::lt_out)); }",3
-181,181,torch.scatter,,0
+",1,
+178,178,torch.cosh,"Tensor cosh(const Tensor& self) { return unary_op_impl_float(self, cosh_stub); }",3,
+179,179,torch.addbmm,,0,
+180,180,torch.lt,"Tensor lt(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::lt_out)); }",3,
+181,181,torch.scatter,,0,
 182,182,torch.nn.functional.adaptive_max_pool3d,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -4350,8 +4350,8 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-183,183,torch.float_power,,0
+",1,
+183,183,torch.float_power,,0,
 184,184,torch.nn.functional.embedding_bag,"def embedding_bag(
     input: Tensor,
     weight: Tensor,
@@ -4535,9 +4535,9 @@
         weight, input, offsets, scale_grad_by_freq, mode_enum, sparse, per_sample_weights, include_last_offset, padding_idx
     )
     return ret
-",1
-185,185,torch.clamp,,0
-186,186,torch.nonzero,,0
+",1,
+185,185,torch.clamp,,0,
+186,186,torch.nonzero,,0,
 187,187,torch.nn.CELU,"class CELU(Module):
     r""""""Applies the element-wise function:
 
@@ -4580,10 +4580,10 @@
     def extra_repr(self) -> str:
         inplace_str = ', inplace=True' if self.inplace else ''
         return 'alpha={}{}'.format(self.alpha, inplace_str)
-",1
-188,188,torch.repeat_interleave,,0
-189,189,torch.rand,,0
-190,190,torch.range,,0
+",1,
+188,188,torch.repeat_interleave,,0,
+189,189,torch.rand,,0,
+190,190,torch.range,,0,
 191,191,torch.nn.GRUCell,"class GRUCell(RNNCellBase):
     r""""""A gated recurrent unit (GRU) cell
 
@@ -4673,18 +4673,18 @@
             ret = ret.squeeze(0)
 
         return ret
-",1
-192,192,torch.diagonal,,0
-193,193,torch.mul,,0
-194,194,torch.asinh,"Tensor asinh(const Tensor& self) { return unary_op_impl_float(self, asinh_stub); }",3
+",1,
+192,192,torch.diagonal,,0,
+193,193,torch.mul,,0,
+194,194,torch.asinh,"Tensor asinh(const Tensor& self) { return unary_op_impl_float(self, asinh_stub); }",3,
 195,195,torch.are_deterministic_algorithms_enabled,"def are_deterministic_algorithms_enabled():
     r""""""Returns True if the global deterministic flag is turned on. Refer to
     :func:`torch.use_deterministic_algorithms` documentation for more details.
     """"""
     return _C._get_deterministic_algorithms()
-",1
-196,196,torch.cholesky_inverse,,0
-197,197,torch.searchsorted,,0
+",1,
+196,196,torch.cholesky_inverse,,0,
+197,197,torch.searchsorted,,0,
 198,198,torch.nn.TransformerEncoderLayer,"class TransformerEncoderLayer(Module):
     r""""""TransformerEncoderLayer is made up of self-attn and feedforward network.
     This standard encoder layer is based on the paper ""Attention Is All You Need"".
@@ -4915,7 +4915,7 @@
     def _ff_block(self, x: Tensor) -> Tensor:
         x = self.linear2(self.dropout(self.activation(self.linear1(x))))
         return self.dropout2(x)
-",1
+",1,
 199,199,torch.nn.functional.multilabel_margin_loss,"def multilabel_margin_loss(
     input: Tensor,
     target: Tensor,
@@ -4942,7 +4942,7 @@
     else:
         reduction_enum = _Reduction.get_enum(reduction)
     return torch._C._nn.multilabel_margin_loss(input, target, reduction_enum)
-",1
+",1,
 200,200,torch.nn.ZeroPad2d,"class ZeroPad2d(ConstantPad2d):
     r""""""Pads the input tensor boundaries with zero.
 
@@ -4995,7 +4995,7 @@
 
     def extra_repr(self) -> str:
         return '{}'.format(self.padding)
-",1
+",1,
 201,201,torch.nn.Softmin,"class Softmin(Module):
     r""""""Applies the Softmin function to an n-dimensional input Tensor
     rescaling them so that the elements of the n-dimensional output Tensor
@@ -5042,10 +5042,10 @@
 
     def extra_repr(self):
         return 'dim={dim}'.format(dim=self.dim)
-",1
-202,202,torch.nn.functional.softplus,,0
-203,203,torch.pow,"BFloat16 pow(c10::BFloat16 a, double b) { return std::pow(float(a), float(b));}",3
-204,204,torch.amax,,0
+",1,
+202,202,torch.nn.functional.softplus,,0,
+203,203,torch.pow,"BFloat16 pow(c10::BFloat16 a, double b) { return std::pow(float(a), float(b));}",3,
+204,204,torch.amax,,0,
 205,205,torch.nn.RNNBase,"class RNNBase(Module):
     __constants__ = ['mode', 'input_size', 'hidden_size', 'num_layers', 'bias',
                      'batch_first', 'dropout', 'bidirectional', 'proj_size']
@@ -5352,11 +5352,11 @@
         replica._flat_weights = replica._flat_weights[:]
         replica._flat_weights_names = replica._flat_weights_names[:]
         return replica
-",1
-206,206,torch.rsqrt,BFloat16 rsqrt(c10::BFloat16 a) { return 1.0 / std::sqrt(float(a));},3
-207,207,torch.lu_solve,,0
-208,208,torch.addr,,0
-209,209,torch.count_nonzero,,0
+",1,
+206,206,torch.rsqrt,BFloat16 rsqrt(c10::BFloat16 a) { return 1.0 / std::sqrt(float(a)),},3
+207,207,torch.lu_solve,,0,
+208,208,torch.addr,,0,
+209,209,torch.count_nonzero,,0,
 210,210,torch.nn.LeakyReLU,"class LeakyReLU(Module):
     r""""""Applies the element-wise function:
 
@@ -5406,8 +5406,8 @@
     def extra_repr(self) -> str:
         inplace_str = ', inplace=True' if self.inplace else ''
         return 'negative_slope={}{}'.format(self.negative_slope, inplace_str)
-",1
-211,211,torch.erfc,"Tensor erfc(const Tensor& self) { return unary_op_impl_float(self, erfc_stub); }",3
+",1,
+211,211,torch.erfc,"Tensor erfc(const Tensor& self) { return unary_op_impl_float(self, erfc_stub); }",3,
 212,212,torch.nn.functional.max_pool3d,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -5419,9 +5419,9 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-213,213,torch.tril_indices,,0
-214,214,torch.nn.functional.cosine_similarity,,0
+",1,
+213,213,torch.tril_indices,,0,
+214,214,torch.nn.functional.cosine_similarity,,0,
 215,215,torch.nn.functional.cross_entropy,"def cross_entropy(
     input: Tensor,
     target: Tensor,
@@ -5513,7 +5513,7 @@
     if size_average is not None or reduce is not None:
         reduction = _Reduction.legacy_get_string(size_average, reduce)
     return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index, label_smoothing)
-",1
+",1,
 216,216,torch.nn.Tanh,"class Tanh(Module):
     r""""""Applies the Hyperbolic Tangent (Tanh) function element-wise.
 
@@ -5537,10 +5537,10 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return torch.tanh(input)
-",1
-217,217,torch.triu_indices,,0
-218,218,torch.erfinv,"Tensor erfinv(const Tensor& self) { return unary_op_impl_float(self, erfinv_stub); }",3
-219,219,torch.log1p,"Tensor log1p(const Tensor& self) { return unary_op_impl_float(self, log1p_stub); }",3
+",1,
+217,217,torch.triu_indices,,0,
+218,218,torch.erfinv,"Tensor erfinv(const Tensor& self) { return unary_op_impl_float(self, erfinv_stub); }",3,
+219,219,torch.log1p,"Tensor log1p(const Tensor& self) { return unary_op_impl_float(self, log1p_stub); }",3,
 220,220,torch.nn.ReflectionPad1d,"class ReflectionPad1d(_ReflectionPadNd):
     r""""""Pads the input tensor using the reflection of the input boundary.
 
@@ -5580,9 +5580,9 @@
     def __init__(self, padding: _size_2_t) -> None:
         super().__init__()
         self.padding = _pair(padding)
-",1
-221,221,torch.cummax,,0
-222,222,torch.exp2,"Tensor exp2(const Tensor& self) { return unary_op_impl_float(self, exp2_stub); }",3
+",1,
+221,221,torch.cummax,,0,
+222,222,torch.exp2,"Tensor exp2(const Tensor& self) { return unary_op_impl_float(self, exp2_stub); }",3,
 223,223,torch.nn.functional.hardswish,"def hardswish(input: Tensor, inplace: bool = False) -> Tensor:
     r""""""Applies the hardswish function, element-wise, as described in the paper:
 
@@ -5605,7 +5605,7 @@
     if inplace:
         return torch._C._nn.hardswish_(input)
     return torch._C._nn.hardswish(input)
-",1
+",1,
 224,224,torch.nn.LocalResponseNorm,"class LocalResponseNorm(Module):
     r""""""Applies local response normalization over an input signal composed
     of several input planes, where channels occupy the second dimension.
@@ -5653,7 +5653,7 @@
 
     def extra_repr(self):
         return '{size}, alpha={alpha}, beta={beta}, k={k}'.format(**self.__dict__)
-",1
+",1,
 225,225,torch.nn.Embedding,"class Embedding(Module):
     r""""""A simple lookup table that stores embeddings of a fixed dictionary and size.
 
@@ -5865,7 +5865,7 @@
             scale_grad_by_freq=scale_grad_by_freq,
             sparse=sparse)
         return embedding
-",1
+",1,
 226,226,torch.nn.InstanceNorm1d,"class InstanceNorm1d(_InstanceNorm):
     r""""""Applies Instance Normalization over a 2D (unbatched) or 3D (batched) input
     as described in the paper
@@ -5940,7 +5940,7 @@
         if input.dim() not in (2, 3):
             raise ValueError('expected 2D or 3D input (got {}D input)'
                              .format(input.dim()))
-",1
+",1,
 227,227,torch.nn.functional.normalize,"def normalize(input: Tensor, p: float = 2.0, dim: int = 1, eps: float = 1e-12, out: Optional[Tensor] = None) -> Tensor:
     r""""""Performs :math:`L_p` normalization of inputs over specified dimension.
 
@@ -5968,7 +5968,7 @@
     else:
         denom = input.norm(p, dim, keepdim=True).clamp_min_(eps).expand_as(input)
         return torch.div(input, denom, out=out)
-",1
+",1,
 228,228,torch.nn.functional.max_unpool1d,"def max_unpool1d(
     input: Tensor, indices: Tensor,
     kernel_size: BroadcastingList1[int],
@@ -6003,9 +6003,9 @@
     else:
         output_size = output_size + (1,)
     return torch._C._nn.max_unpool2d(input.unsqueeze(-1), indices.unsqueeze(-1), output_size).squeeze(-1)
-",1
-229,229,torch.sparse_coo_tensor,,0
-230,230,torch.matrix_power,,0
+",1,
+229,229,torch.sparse_coo_tensor,,0,
+230,230,torch.matrix_power,,0,
 231,231,torch.nn.MaxPool2d,"class MaxPool2d(_MaxPoolNd):
     r""""""Applies a 2D max pooling over an input signal composed of several input
     planes.
@@ -6078,8 +6078,8 @@
         return F.max_pool2d(input, self.kernel_size, self.stride,
                             self.padding, self.dilation, ceil_mode=self.ceil_mode,
                             return_indices=self.return_indices)
-",1
-232,232,torch.logdet,,0
+",1,
+232,232,torch.logdet,,0,
 233,233,torch.nn.MultiLabelMarginLoss,"class MultiLabelMarginLoss(_Loss):
     r""""""Creates a criterion that optimizes a multi-class multi-classification
     hinge loss (margin-based loss) between input :math:`x` (a 2D mini-batch `Tensor`)
@@ -6142,15 +6142,15 @@
 
     def forward(self, input: Tensor, target: Tensor) -> Tensor:
         return F.multilabel_margin_loss(input, target, reduction=self.reduction)
-",1
+",1,
 234,234,torch.lstsq,"def lstsq(input: Tensor, A: Tensor, *, out=None) -> Tuple[Tensor, Tensor]:
     raise RuntimeError(
         ""This function was deprecated since version 1.9 and is now removed."",
         ""Please use the `torch.linalg.lstsq` function instead."",
     )
-",1
-235,235,torch.bincount,,0
-236,236,torch.digamma,"Tensor digamma(const Tensor& self) { return unary_op_impl_float(self, digamma_stub); }",3
+",1,
+235,235,torch.bincount,,0,
+236,236,torch.digamma,"Tensor digamma(const Tensor& self) { return unary_op_impl_float(self, digamma_stub); }",3,
 237,237,torch.nn.functional.softmax,"def softmax(input: Tensor, dim: Optional[int] = None, _stacklevel: int = 3, dtype: Optional[DType] = None) -> Tensor:
     r""""""Applies a softmax function.
 
@@ -6185,10 +6185,10 @@
     else:
         ret = input.softmax(dim, dtype=dtype)
     return ret
-",1
-238,238,torch.tan,"Tensor tan(const Tensor& self) { return unary_op_impl_float(self, tan_stub);  }",3
-239,239,torch.nn.functional.prelu,,0
-240,240,torch.tanh,"Tensor tanh(const Tensor& self) { return unary_op_impl_float(self, tanh_stub); }",3
+",1,
+238,238,torch.tan,"Tensor tan(const Tensor& self) { return unary_op_impl_float(self, tan_stub);  }",3,
+239,239,torch.nn.functional.prelu,,0,
+240,240,torch.tanh,"Tensor tanh(const Tensor& self) { return unary_op_impl_float(self, tanh_stub); }",3,
 241,241,torch.nn.Conv3d,"class Conv3d(_ConvNd):
     __doc__ = r""""""Applies a 3D convolution over an input signal composed of several input
     planes.
@@ -6338,8 +6338,8 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return self._conv_forward(input, self.weight, self.bias)
-",1
-242,242,torch.log10,"Tensor log10(const Tensor& self) { return unary_op_impl_float(self, log10_stub); }",3
+",1,
+242,242,torch.log10,"Tensor log10(const Tensor& self) { return unary_op_impl_float(self, log10_stub); }",3,
 243,243,torch.nn.MaxUnpool1d,"class MaxUnpool1d(_MaxUnpoolNd):
     r""""""Computes a partial inverse of :class:`MaxPool1d`.
 
@@ -6412,7 +6412,7 @@
     def forward(self, input: Tensor, indices: Tensor, output_size: Optional[List[int]] = None) -> Tensor:
         return F.max_unpool1d(input, indices, self.kernel_size, self.stride,
                               self.padding, output_size)
-",1
+",1,
 244,244,torch.nn.BatchNorm1d,"class BatchNorm1d(_BatchNorm):
     r""""""Applies Batch Normalization over a 2D or 3D input as described in the paper
     `Batch Normalization: Accelerating Deep Network Training by Reducing
@@ -6484,10 +6484,10 @@
             raise ValueError(
                 ""expected 2D or 3D input (got {}D input)"".format(input.dim())
             )
-",1
-245,245,torch.ge,"Tensor ge(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::ge_out)); }",3
-246,246,torch.nn.functional.adaptive_avg_pool1d,,0
-247,247,torch.bmm,,0
+",1,
+245,245,torch.ge,"Tensor ge(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::ge_out)); }",3,
+246,246,torch.nn.functional.adaptive_avg_pool1d,,0,
+247,247,torch.bmm,,0,
 248,248,torch.nn.functional.max_unpool2d,"def max_unpool2d(
     input: Tensor, indices: Tensor,
     kernel_size: BroadcastingList2[int],
@@ -6518,13 +6518,13 @@
     padding = _pair(padding)
     output_size = _unpool_output_size(input, kernel_size, _stride, padding, output_size)
     return torch._C._nn.max_unpool2d(input, indices, output_size)
-",1
-249,249,torch.addcdiv,,0
-250,250,torch.argmax,,0
-251,251,torch.topk,,0
-252,252,torch.ones_like,,0
-253,253,torch.sub,,0
-254,254,torch.var_mean,,0
+",1,
+249,249,torch.addcdiv,,0,
+250,250,torch.argmax,,0,
+251,251,torch.topk,,0,
+252,252,torch.ones_like,,0,
+253,253,torch.sub,,0,
+254,254,torch.var_mean,,0,
 255,255,torch.nn.Upsample,"class Upsample(Module):
     r""""""Upsamples a given multi-channel 1D (temporal), 2D (spatial) or 3D (volumetric) data.
 
@@ -6680,9 +6680,9 @@
             info = 'size=' + repr(self.size)
         info += ', mode=' + repr(self.mode)
         return info
-",1
-256,256,torch.vstack,,0
-257,257,torch.ceil,"Tensor ceil(const Tensor& self) { return unary_op_impl(self, at::ceil_out); }",3
+",1,
+256,256,torch.vstack,,0,
+257,257,torch.ceil,"Tensor ceil(const Tensor& self) { return unary_op_impl(self, at::ceil_out); }",3,
 258,258,torch.nn.Sigmoid,"class Sigmoid(Module):
     r""""""Applies the element-wise function:
 
@@ -6705,7 +6705,7 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return torch.sigmoid(input)
-",1
+",1,
 259,259,torch.nn.functional.l1_loss,"def l1_loss(
     input: Tensor,
     target: Tensor,
@@ -6735,9 +6735,9 @@
 
     expanded_input, expanded_target = torch.broadcast_tensors(input, target)
     return torch._C._nn.l1_loss(expanded_input, expanded_target, _Reduction.get_enum(reduction))
-",1
-260,260,torch.flatten,,0
-261,261,torch.kron,,0
+",1,
+260,260,torch.flatten,,0,
+261,261,torch.kron,,0,
 262,262,torch.nn.SELU,"class SELU(Module):
     r""""""Applied element-wise, as:
 
@@ -6785,7 +6785,7 @@
     def extra_repr(self) -> str:
         inplace_str = 'inplace=True' if self.inplace else ''
         return inplace_str
-",1
+",1,
 263,263,torch.nn.RReLU,"class RReLU(Module):
     r""""""Applies the randomized leaky rectified liner unit function, element-wise,
     as described in the paper:
@@ -6849,8 +6849,8 @@
     def extra_repr(self):
         inplace_str = ', inplace=True' if self.inplace else ''
         return 'lower={}, upper={}{}'.format(self.lower, self.upper, inplace_str)
-",1
-264,264,torch.narrow,,0
+",1,
+264,264,torch.narrow,,0,
 265,265,torch.nn.LogSigmoid,"class LogSigmoid(Module):
     r""""""Applies the element-wise function:
 
@@ -6872,11 +6872,11 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.logsigmoid(input)
-",1
-266,266,torch.exp,"Tensor exp(const Tensor& self) { return unary_op_impl_float(self, exp_stub); }",3
-267,267,torch.signbit,,0
-268,268,torch.min,"BFloat16 min(c10::BFloat16 a, c10::BFloat16 b) { return std::min(float(a), float(b));}",3
-269,269,torch.arange,,0
+",1,
+266,266,torch.exp,"Tensor exp(const Tensor& self) { return unary_op_impl_float(self, exp_stub); }",3,
+267,267,torch.signbit,,0,
+268,268,torch.min,"BFloat16 min(c10::BFloat16 a, c10::BFloat16 b) { return std::min(float(a), float(b));}",3,
+269,269,torch.arange,,0,
 270,270,torch.lu,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -6888,13 +6888,13 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-271,271,torch.diag,,0
-272,272,torch.sinh,"Tensor sinh(const Tensor& self) { return unary_op_impl_float(self, sinh_stub); }",3
-273,273,torch.dstack,,0
-274,274,torch.flip,,0
-275,275,torch.nansum,,0
-276,276,torch.cummin,,0
+",1,
+271,271,torch.diag,,0,
+272,272,torch.sinh,"Tensor sinh(const Tensor& self) { return unary_op_impl_float(self, sinh_stub); }",3,
+273,273,torch.dstack,,0,
+274,274,torch.flip,,0,
+275,275,torch.nansum,,0,
+276,276,torch.cummin,,0,
 277,277,torch.nn.Bilinear,"class Bilinear(Module):
     r""""""Applies a bilinear transformation to the incoming data:
     :math:`y = x_1^T A x_2 + b`
@@ -6967,7 +6967,7 @@
         return 'in1_features={}, in2_features={}, out_features={}, bias={}'.format(
             self.in1_features, self.in2_features, self.out_features, self.bias is not None
         )
-",1
+",1,
 278,278,torch.use_deterministic_algorithms,"def use_deterministic_algorithms(mode, *, warn_only=False):
     r"""""" Sets whether PyTorch operations must use ""deterministic""
     algorithms. That is, algorithms which, given the same input, and when
@@ -7094,9 +7094,9 @@
         RuntimeError: avg_pool3d_backward_cuda does not have a deterministic implementation...
     """"""
     _C._set_deterministic_algorithms(mode, warn_only=warn_only)
-",1
-279,279,torch.set_flush_denormal,,0
-280,280,torch.flipud,,0
+",1,
+279,279,torch.set_flush_denormal,,0,
+280,280,torch.flipud,,0,
 281,281,torch.nn.Dropout,"class Dropout(_DropoutNd):
     r""""""During training, randomly zeroes some of the elements of the input
     tensor with probability :attr:`p` using samples from a Bernoulli
@@ -7132,7 +7132,7 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.dropout(input, self.p, self.training, self.inplace)
-",1
+",1,
 282,282,torch.set_default_dtype,"def set_default_dtype(d):
     r""""""
 
@@ -7178,9 +7178,9 @@
 
     """"""
     _C._set_default_dtype(d)
-",1
-283,283,torch.fmax,"float fmax(float x, float y) { return __builtin_fmaxf(x, y); }",3
-284,284,torch.trapz,,0
+",1,
+283,283,torch.fmax,"float fmax(float x, float y) { return __builtin_fmaxf(x, y); }",3,
+284,284,torch.trapz,,0,
 285,285,torch.nn.GroupNorm,"class GroupNorm(Module):
     r""""""Applies Group Normalization over a mini-batch of inputs as described in
     the paper `Group Normalization <https://arxiv.org/abs/1803.08494>`__
@@ -7262,7 +7262,7 @@
     def extra_repr(self) -> str:
         return '{num_groups}, {num_channels}, eps={eps}, ' \
             'affine={affine}'.format(**self.__dict__)
-",1
+",1,
 286,286,torch.nn.functional.dropout,"def dropout(input: Tensor, p: float = 0.5, training: bool = True, inplace: bool = False) -> Tensor:
     r""""""
     During training, randomly zeroes some of the elements of the input
@@ -7281,7 +7281,7 @@
     if p < 0.0 or p > 1.0:
         raise ValueError(""dropout probability has to be between 0 and 1, "" ""but got {}"".format(p))
     return _VF.dropout_(input, p, training) if inplace else _VF.dropout(input, p, training)
-",1
+",1,
 287,287,torch.cartesian_prod,"def cartesian_prod(*tensors: Tensor) -> Tensor:
     """"""Do cartesian product of the given sequence of tensors. The behavior is similar to
     python's `itertools.product`.
@@ -7315,7 +7315,7 @@
     if has_torch_function(tensors):
         return handle_torch_function(cartesian_prod, tensors, *tensors)
     return _VF.cartesian_prod(tensors)  # type: ignore[attr-defined]
-",1
+",1,
 288,288,torch.nn.functional.hardtanh,"def hardtanh(input: Tensor, min_val: float = -1., max_val: float = 1., inplace: bool = False) -> Tensor:
     r""""""
     hardtanh(input, min_val=-1., max_val=1., inplace=False) -> Tensor
@@ -7330,8 +7330,8 @@
     else:
         result = torch._C._nn.hardtanh(input, min_val, max_val)
     return result
-",1
-289,289,torch.fmod,"BFloat16 fmod(c10::BFloat16 a, c10::BFloat16 b) { return std::fmod(float(a), float(b));}",3
+",1,
+289,289,torch.fmod,"BFloat16 fmod(c10::BFloat16 a, c10::BFloat16 b) { return std::fmod(float(a), float(b));}",3,
 290,290,torch.cdist,"def cdist(x1, x2, p=2., compute_mode='use_mm_for_euclid_dist_if_necessary'):
     # type: (Tensor, Tensor, float, str) -> (Tensor)
     r""""""Computes batched the p-norm distance between each pair of the two collections of row vectors.
@@ -7385,8 +7385,8 @@
         return _VF.cdist(x1, x2, p, 2)  # type: ignore[attr-defined]
     else:
         raise ValueError(f""{compute_mode} is not a valid value for compute_mode"")
-",1
-291,291,torch.as_strided,,0
+",1,
+291,291,torch.as_strided,,0,
 292,292,torch.nn.MaxPool3d,"class MaxPool3d(_MaxPoolNd):
     r""""""Applies a 3D max pooling over an input signal composed of several input
     planes.
@@ -7463,7 +7463,7 @@
         return F.max_pool3d(input, self.kernel_size, self.stride,
                             self.padding, self.dilation, ceil_mode=self.ceil_mode,
                             return_indices=self.return_indices)
-",1
+",1,
 293,293,torch.nn.Softplus,"class Softplus(Module):
     r""""""Applies the Softplus function :math:`\text{Softplus}(x) = \frac{1}{\beta} *
     \log(1 + \exp(\beta * x))` element-wise.
@@ -7504,8 +7504,8 @@
 
     def extra_repr(self) -> str:
         return 'beta={}, threshold={}'.format(self.beta, self.threshold)
-",1
-294,294,torch.slogdet,,0
+",1,
+294,294,torch.slogdet,,0,
 295,295,torch.tensordot,"def tensordot(a, b, dims=2, out: Optional[torch.Tensor] = None):  # noqa: F811
     r""""""Returns a contraction of a and b over multiple dimensions.
 
@@ -7595,7 +7595,7 @@
         return _VF.tensordot(a, b, dims_a, dims_b)  # type: ignore[attr-defined]
     else:
         return _VF.tensordot(a, b, dims_a, dims_b, out=out)  # type: ignore[attr-defined]
-",1
+",1,
 296,296,torch.save,"def save(
     obj: object,
     f: FILE_LIKE,
@@ -7654,14 +7654,14 @@
     else:
         with _open_file_like(f, 'wb') as opened_file:
             _legacy_save(obj, opened_file, pickle_module, pickle_protocol)
-",1
+",1,
 297,297,torch.get_rng_state,"def get_rng_state() -> torch.Tensor:
     r""""""Returns the random number generator state as a `torch.ByteTensor`.""""""
     return default_generator.get_state()
-",1
-298,298,torch.swapaxes,,0
-299,299,torch.pinverse,,0
-300,300,torch.logical_xor,"Tensor logical_xor(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::logical_xor_out)); }",3
+",1,
+298,298,torch.swapaxes,,0,
+299,299,torch.pinverse,,0,
+300,300,torch.logical_xor,"Tensor logical_xor(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::logical_xor_out)); }",3,
 301,301,torch.nn.functional.instance_norm,"def instance_norm(
     input: Tensor,
     running_mean: Optional[Tensor] = None,
@@ -7696,7 +7696,7 @@
     return torch.instance_norm(
         input, weight, bias, running_mean, running_var, use_input_stats, momentum, eps, torch.backends.cudnn.enabled
     )
-",1
+",1,
 302,302,torch.nn.LogSoftmax,"class LogSoftmax(Module):
     r""""""Applies the :math:`\log(\text{Softmax}(x))` function to an n-dimensional
     input Tensor. The LogSoftmax formulation can be simplified as:
@@ -7739,8 +7739,8 @@
 
     def extra_repr(self):
         return 'dim={dim}'.format(dim=self.dim)
-",1
-303,303,torch.log2,"Tensor log2(const Tensor& self) { return unary_op_impl_float(self, log2_stub); }",3
+",1,
+303,303,torch.log2,"Tensor log2(const Tensor& self) { return unary_op_impl_float(self, log2_stub); }",3,
 304,304,torch.nn.functional.rrelu,"def rrelu(
     input: Tensor, lower: float = 1.0 / 8, upper: float = 1.0 / 3, training: bool = False, inplace: bool = False
 ) -> Tensor:
@@ -7759,9 +7759,9 @@
     else:
         result = torch.rrelu(input, lower, upper, training)
     return result
-",1
-305,305,torch.polygamma,,0
-306,306,torch.sgn,"Tensor sgn(const Tensor& self) { return unary_op_impl(self, at::sgn_out); }",3
+",1,
+305,305,torch.polygamma,,0,
+306,306,torch.sgn,"Tensor sgn(const Tensor& self) { return unary_op_impl(self, at::sgn_out); }",3,
 307,307,torch.nn.functional.dropout2d,"def dropout2d(input: Tensor, p: float = 0.5, training: bool = True, inplace: bool = False) -> Tensor:
     r""""""
     Randomly zero out entire channels (a channel is a 2D feature map,
@@ -7804,10 +7804,10 @@
     result = _VF.feature_dropout_(input, p, training) if inplace else _VF.feature_dropout(input, p, training)
 
     return result
-",1
-308,308,torch.abs,BFloat16 abs(c10::BFloat16 a) { return std::abs(float(a));},3
-309,309,torch.cumprod,,0
-310,310,torch.lcm,,0
+",1,
+308,308,torch.abs,BFloat16 abs(c10::BFloat16 a) { return std::abs(float(a)),},3
+309,309,torch.cumprod,,0,
+310,310,torch.lcm,,0,
 311,311,torch.nn.TransformerDecoderLayer,"class TransformerDecoderLayer(Module):
     r""""""TransformerDecoderLayer is made up of self-attn, multi-head-attn and feedforward network.
     This standard decoder layer is based on the paper ""Attention Is All You Need"".
@@ -7943,9 +7943,9 @@
     def _ff_block(self, x: Tensor) -> Tensor:
         x = self.linear2(self.dropout(self.activation(self.linear1(x))))
         return self.dropout3(x)
-",1
-312,312,torch.hypot,,0
-313,313,torch.nn.functional.pairwise_distance,,0
+",1,
+312,312,torch.hypot,,0,
+313,313,torch.nn.functional.pairwise_distance,,0,
 314,314,torch.nn.BCELoss,"class BCELoss(_WeightedLoss):
     r""""""Creates a criterion that measures the Binary Cross Entropy between the target and
     the input probabilities:
@@ -8027,10 +8027,10 @@
 
     def forward(self, input: Tensor, target: Tensor) -> Tensor:
         return F.binary_cross_entropy(input, target, weight=self.weight, reduction=self.reduction)
-",1
-315,315,torch.matmul,,0
-316,316,torch.vander,,0
-317,317,torch.baddbmm,,0
+",1,
+315,315,torch.matmul,,0,
+316,316,torch.vander,,0,
+317,317,torch.baddbmm,,0,
 318,318,torch.nn.LayerNorm,"class LayerNorm(Module):
     r""""""Applies Layer Normalization over a mini-batch of inputs as described in
     the paper `Layer Normalization <https://arxiv.org/abs/1607.06450>`__
@@ -8140,14 +8140,14 @@
     def extra_repr(self) -> str:
         return '{normalized_shape}, eps={eps}, ' \
             'elementwise_affine={elementwise_affine}'.format(**self.__dict__)
-",1
+",1,
 319,319,torch.symeig,"def _symeig(
     input, eigenvectors=False, upper=True, *, out=None
 ) -> Tuple[Tensor, Tensor]:
     raise RuntimeError(
         ""This function was deprecated since version 1.9 and is now removed. Please use the `torch.linalg.eigh` function instead."",
     )
-",1
+",1,
 320,320,torch.nn.functional.relu,"def relu(input: Tensor, inplace: bool = False) -> Tensor:
     r""""""relu(input, inplace=False) -> Tensor
 
@@ -8161,7 +8161,7 @@
     else:
         result = torch.relu(input)
     return result
-",1
+",1,
 321,321,torch.nn.GRU,"class GRU(RNNBase):
     r""""""Applies a multi-layer gated recurrent unit (GRU) RNN to an input sequence.
 
@@ -8348,7 +8348,7 @@
                 hidden = hidden.squeeze(1)
 
             return output, self.permute_hidden(hidden, unsorted_indices)
-",1
+",1,
 322,322,torch.nn.functional.layer_norm,"def layer_norm(
     input: Tensor,
     normalized_shape: List[int],
@@ -8365,7 +8365,7 @@
             layer_norm, (input, weight, bias), input, normalized_shape, weight=weight, bias=bias, eps=eps
         )
     return torch.layer_norm(input, normalized_shape, weight, bias, eps, torch.backends.cudnn.enabled)
-",1
+",1,
 323,323,torch.nn.functional.multilabel_soft_margin_loss,"def multilabel_soft_margin_loss(
     input: Tensor,
     target: Tensor,
@@ -8411,8 +8411,8 @@
         ret = input
         raise ValueError(reduction + "" is not valid"")
     return ret
-",1
-324,324,torch.poisson,,0
+",1,
+324,324,torch.poisson,,0,
 325,325,torch.nn.UpsamplingNearest2d,"class UpsamplingNearest2d(Upsample):
     r""""""Applies a 2D nearest neighbor upsampling to an input signal composed of several input
     channels.
@@ -8456,10 +8456,10 @@
     """"""
     def __init__(self, size: Optional[_size_2_t] = None, scale_factor: Optional[_ratio_2_t] = None) -> None:
         super().__init__(size, scale_factor, mode='nearest')
-",1
-326,326,torch.nn.functional.linear,,0
-327,327,torch.logical_or,"Tensor logical_or(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::logical_or_out)); }",3
-328,328,torch.full,,0
+",1,
+326,326,torch.nn.functional.linear,,0,
+327,327,torch.logical_or,"Tensor logical_or(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::logical_or_out)); }",3,
+328,328,torch.full,,0,
 329,329,torch.is_tensor,"def is_tensor(obj):
     r""""""Returns True if `obj` is a PyTorch tensor.
 
@@ -8478,8 +8478,8 @@
 
     """"""
     return isinstance(obj, torch.Tensor)
-",1
-330,330,torch.randn_like,,0
+",1,
+330,330,torch.randn_like,,0,
 331,331,torch.nn.functional.ctc_loss,"def ctc_loss(
     log_probs: Tensor,
     targets: Tensor,
@@ -8542,7 +8542,7 @@
     return torch.ctc_loss(
         log_probs, targets, input_lengths, target_lengths, blank, _Reduction.get_enum(reduction), zero_infinity
     )
-",1
+",1,
 332,332,torch.block_diag,"def block_diag(*tensors):
     """"""Create a block diagonal matrix from provided tensors.
 
@@ -8577,7 +8577,7 @@
     if has_torch_function(tensors):
         return handle_torch_function(block_diag, tensors, *tensors)
     return torch._C._VariableFunctions.block_diag(tensors)  # type: ignore[attr-defined]
-",1
+",1,
 333,333,torch.nn.functional.softmin,"def softmin(input: Tensor, dim: Optional[int] = None, _stacklevel: int = 3, dtype: Optional[DType] = None) -> Tensor:
     r""""""Applies a softmin function.
 
@@ -8602,8 +8602,8 @@
     else:
         ret = (-input).softmax(dim, dtype=dtype)
     return ret
-",1
-334,334,torch.combinations,,0
+",1,
+334,334,torch.combinations,,0,
 335,335,torch.nn.ReplicationPad3d,"class ReplicationPad3d(_ReplicationPadNd):
     r""""""Pads the input tensor using replication of the input boundary.
 
@@ -8643,7 +8643,7 @@
     def __init__(self, padding: _size_6_t) -> None:
         super().__init__()
         self.padding = _ntuple(6)(padding)
-",1
+",1,
 336,336,torch.nn.functional.nll_loss,"def nll_loss(
     input: Tensor,
     target: Tensor,
@@ -8709,13 +8709,13 @@
     if size_average is not None or reduce is not None:
         reduction = _Reduction.legacy_get_string(size_average, reduce)
     return torch._C._nn.nll_loss_nd(input, target, weight, _Reduction.get_enum(reduction), ignore_index)
-",1
-337,337,torch.lerp,,0
-338,338,torch.numel,,0
-339,339,torch.logaddexp,,0
-340,340,torch.movedim,,0
-341,341,torch.fmin,"float fmin(float x, float y) { return __builtin_fminf(x, y); }",3
-342,342,torch.outer,,0
+",1,
+337,337,torch.lerp,,0,
+338,338,torch.numel,,0,
+339,339,torch.logaddexp,,0,
+340,340,torch.movedim,,0,
+341,341,torch.fmin,"float fmin(float x, float y) { return __builtin_fminf(x, y); }",3,
+342,342,torch.outer,,0,
 343,343,torch.unique,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -8727,8 +8727,8 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-344,344,torch.renorm,,0
+",1,
+344,344,torch.renorm,,0,
 345,345,torch.nn.ConvTranspose3d,"class ConvTranspose3d(_ConvTransposeNd):
     __doc__ = r""""""Applies a 3D transposed convolution operator over an input image composed of several input
     planes.
@@ -8879,7 +8879,7 @@
         return F.conv_transpose3d(
             input, self.weight, self.bias, self.stride, self.padding,
             output_padding, self.groups, self.dilation)
-",1
+",1,
 346,346,torch.nn.ReLU,"class ReLU(Module):
     r""""""Applies the rectified linear unit function element-wise:
 
@@ -8920,9 +8920,9 @@
     def extra_repr(self) -> str:
         inplace_str = 'inplace=True' if self.inplace else ''
         return inplace_str
-",1
-347,347,torch.mm,,0
-348,348,torch.true_divide,,0
+",1,
+347,347,torch.mm,,0,
+348,348,torch.true_divide,,0,
 349,349,torch.nn.SiLU,"class SiLU(Module):
     r""""""Applies the Sigmoid Linear Unit (SiLU) function, element-wise.
     The SiLU function is also known as the swish function.
@@ -8963,9 +8963,9 @@
     def extra_repr(self) -> str:
         inplace_str = 'inplace=True' if self.inplace else ''
         return inplace_str
-",1
-350,350,torch.bitwise_or,,0
-351,351,torch.randperm,,0
+",1,
+350,350,torch.bitwise_or,,0,
+351,351,torch.randperm,,0,
 352,352,torch.nn.functional.triplet_margin_loss,"def triplet_margin_loss(
     anchor: Tensor,
     positive: Tensor,
@@ -9001,12 +9001,12 @@
     else:
         reduction_enum = _Reduction.get_enum(reduction)
     return torch.triplet_margin_loss(anchor, positive, negative, margin, p, eps, swap, reduction_enum)
-",1
-353,353,torch.reciprocal,"Tensor reciprocal(const Tensor& self) { return unary_op_impl_float(self, reciprocal_stub); }",3
-354,354,torch.mode,,0
-355,355,torch.t,thread t([this]() { CAFFE_THROW(this->message_); },3
-356,356,torch.nn.functional.bilinear,,0
-357,357,torch.atanh,"Tensor atanh(const Tensor& self) { return unary_op_impl_float(self, atanh_stub); }",3
+",1,
+353,353,torch.reciprocal,"Tensor reciprocal(const Tensor& self) { return unary_op_impl_float(self, reciprocal_stub); }",3,
+354,354,torch.mode,,0,
+355,355,torch.t,thread t([this]() { CAFFE_THROW(this->message_), },3
+356,356,torch.nn.functional.bilinear,,0,
+357,357,torch.atanh,"Tensor atanh(const Tensor& self) { return unary_op_impl_float(self, atanh_stub); }",3,
 358,358,torch.nn.GELU,"class GELU(Module):
     r""""""Applies the Gaussian Error Linear Units function:
 
@@ -9046,8 +9046,8 @@
 
     def extra_repr(self) -> str:
         return 'approximate={}'.format(repr(self.approximate))
-",1
-359,359,torch.diag_embed,,0
+",1,
+359,359,torch.diag_embed,,0,
 360,360,torch.nn.UpsamplingBilinear2d,"class UpsamplingBilinear2d(Upsample):
     r""""""Applies a 2D bilinear upsampling to an input signal composed of several input
     channels.
@@ -9093,19 +9093,19 @@
     """"""
     def __init__(self, size: Optional[_size_2_t] = None, scale_factor: Optional[_ratio_2_t] = None) -> None:
         super().__init__(size, scale_factor, mode='bilinear', align_corners=True)
-",1
-361,361,torch.where,,0
-362,362,torch.acosh,"Tensor acosh(const Tensor& self) { return unary_op_impl_float(self, acosh_stub); }",3
-363,363,torch.masked_select,,0
-364,364,torch.nn.functional.avg_pool2d,,0
+",1,
+361,361,torch.where,,0,
+362,362,torch.acosh,"Tensor acosh(const Tensor& self) { return unary_op_impl_float(self, acosh_stub); }",3,
+363,363,torch.masked_select,,0,
+364,364,torch.nn.functional.avg_pool2d,,0,
 365,365,torch.eig,"def eig(
     self: Tensor, eigenvectors: bool = False, *, e=None, v=None
 ) -> Tuple[Tensor, Tensor]:
     raise RuntimeError(
         ""This function was deprecated since version 1.9 and is now removed. Please use the `torch.linalg.eig` function instead."",
     )
-",1
-366,366,torch.bitwise_xor,,0
+",1,
+366,366,torch.bitwise_xor,,0,
 367,367,torch.nn.CrossEntropyLoss,"class CrossEntropyLoss(_WeightedLoss):
     r""""""This criterion computes the cross entropy loss between input logits
     and target.
@@ -9251,7 +9251,7 @@
         return F.cross_entropy(input, target, weight=self.weight,
                                ignore_index=self.ignore_index, reduction=self.reduction,
                                label_smoothing=self.label_smoothing)
-",1
+",1,
 368,368,torch.nn.functional.lp_pool2d,"def lp_pool2d(
     input: Tensor, norm_type: Union[int, float],
     kernel_size: BroadcastingList2[int],
@@ -9275,8 +9275,8 @@
         out = avg_pool2d(input.pow(norm_type), kernel_size, padding=0, ceil_mode=ceil_mode)
 
     return (torch.sign(out) * relu(torch.abs(out))).mul(kw * kh).pow(1.0 / norm_type)
-",1
-369,369,torch.remainder,"float remainder(float x, float y) { return __builtin_remainderf(x, y); }",3
+",1,
+369,369,torch.remainder,"float remainder(float x, float y) { return __builtin_remainderf(x, y); }",3,
 370,370,torch.nn.functional.tanhshrink,"def tanhshrink(input):
     r""""""tanhshrink(input) -> Tensor
 
@@ -9287,10 +9287,10 @@
     if has_torch_function_unary(input):
         return handle_torch_function(tanhshrink, (input,), input)
     return input - input.tanh()
-",1
-371,371,torch.bitwise_not,"Tensor bitwise_not(const Tensor& self) { return unary_op_impl(self, at::bitwise_not_out); }",3
-372,372,torch.eq,"Tensor eq(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::eq_out)); }",3
-373,373,torch.erf,"Tensor erf(const Tensor& self) { return unary_op_impl_float(self, erf_stub); }",3
+",1,
+371,371,torch.bitwise_not,"Tensor bitwise_not(const Tensor& self) { return unary_op_impl(self, at::bitwise_not_out); }",3,
+372,372,torch.eq,"Tensor eq(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::eq_out)); }",3,
+373,373,torch.erf,"Tensor erf(const Tensor& self) { return unary_op_impl_float(self, erf_stub); }",3,
 374,374,torch.nn.AdaptiveMaxPool3d,"class AdaptiveMaxPool3d(_AdaptiveMaxPoolNd):
     r""""""Applies a 3D adaptive max pooling over an input signal composed of several input planes.
 
@@ -9332,18 +9332,18 @@
 
     def forward(self, input: Tensor):
         return F.adaptive_max_pool3d(input, self.output_size, self.return_indices)
-",1
-375,375,torch.nn.functional.avg_pool1d,,0
+",1,
+375,375,torch.nn.functional.avg_pool1d,,0,
 376,376,torch.matrix_rank,"def matrix_rank(input, tol=None, symmetric=False, *, out=None) -> Tensor:
     raise RuntimeError(
         ""This function was deprecated since version 1.9 and is now removed."",
         ""Please use the `torch.linalg.matrix_rank` function instead."",
     )
-",1
-377,377,torch.qr,,0
-378,378,torch.complex,,0
-379,379,torch.isreal,,0
-380,380,torch.rand_like,,0
+",1,
+377,377,torch.qr,,0,
+378,378,torch.complex,,0,
+379,379,torch.isreal,,0,
+380,380,torch.rand_like,,0,
 381,381,torch.nn.BCEWithLogitsLoss,"class BCEWithLogitsLoss(_Loss):
     r""""""This loss combines a `Sigmoid` layer and the `BCELoss` in one single
     class. This version is more numerically stable than using a plain `Sigmoid`
@@ -9446,8 +9446,8 @@
                                                   self.weight,
                                                   pos_weight=self.pos_weight,
                                                   reduction=self.reduction)
-",1
-382,382,torch.scatter_add,,0
+",1,
+382,382,torch.scatter_add,,0,
 383,383,torch.nn.utils.rnn.pad_sequence,"def pad_sequence(
     sequences: Union[Tensor, List[Tensor]],
     batch_first: bool = False,
@@ -9507,7 +9507,7 @@
     # assuming trailing dimensions and type of all the Tensors
     # in sequences are same and fetching those from sequences[0]
     return torch._C._nn.pad_sequence(sequences, batch_first, padding_value)
-",1
+",1,
 384,384,torch.nn.functional.adaptive_max_pool1d,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -9519,11 +9519,11 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-385,385,torch.isnan,,0
-386,386,torch.equal,,0
-387,387,torch.max,"BFloat16 max(c10::BFloat16 a, c10::BFloat16 b) { return std::max(float(a), float(b));}",3
-388,388,torch.sum,,0
+",1,
+385,385,torch.isnan,,0,
+386,386,torch.equal,,0,
+387,387,torch.max,"BFloat16 max(c10::BFloat16 a, c10::BFloat16 b) { return std::max(float(a), float(b));}",3,
+388,388,torch.sum,,0,
 389,389,torch.nn.MaxUnpool2d,"class MaxUnpool2d(_MaxUnpoolNd):
     r""""""Computes a partial inverse of :class:`MaxPool2d`.
 
@@ -9609,8 +9609,8 @@
     def forward(self, input: Tensor, indices: Tensor, output_size: Optional[List[int]] = None) -> Tensor:
         return F.max_unpool2d(input, indices, self.kernel_size, self.stride,
                               self.padding, output_size)
-",1
-390,390,torch.angle,,0
+",1,
+390,390,torch.angle,,0,
 391,391,torch.nn.functional.dropout3d,"def dropout3d(input: Tensor, p: float = 0.5, training: bool = True, inplace: bool = False) -> Tensor:
     r""""""
     Randomly zero out entire channels (a channel is a 3D feature map,
@@ -9648,11 +9648,11 @@
     if not is_batched:
         result = result.squeeze_(0) if inplace else result.squeeze(0)
     return result
-",1
-392,392,torch.nn.functional.softshrink,,0
-393,393,torch.nn.functional.conv1d,,0
-394,394,torch.deg2rad,"Tensor deg2rad(const Tensor& self) { return unary_op_impl(self, at::deg2rad_out); }",3
-395,395,torch.roll,,0
+",1,
+392,392,torch.nn.functional.softshrink,,0,
+393,393,torch.nn.functional.conv1d,,0,
+394,394,torch.deg2rad,"Tensor deg2rad(const Tensor& self) { return unary_op_impl(self, at::deg2rad_out); }",3,
+395,395,torch.roll,,0,
 396,396,torch.nn.functional.margin_ranking_loss,"def margin_ranking_loss(
     input1: Tensor,
     input2: Tensor,
@@ -9690,8 +9690,8 @@
             )
         )
     return torch.margin_ranking_loss(input1, input2, target, margin, reduction_enum)
-",1
-397,397,torch.empty_like,,0
+",1,
+397,397,torch.empty_like,,0,
 398,398,torch.atleast_1d,"def atleast_1d(*tensors):
     r""""""
     Returns a 1-dimensional view of each input tensor with zero dimensions.
@@ -9726,8 +9726,8 @@
     if len(tensors) == 1:
         tensors = tensors[0]
     return _VF.atleast_1d(tensors)  # type: ignore[attr-defined]
-",1
-399,399,torch.xlogy,,0
+",1,
+399,399,torch.xlogy,,0,
 400,400,torch.nn.ReLU6,"class ReLU6(Hardtanh):
     r""""""Applies the element-wise function:
 
@@ -9756,10 +9756,10 @@
     def extra_repr(self) -> str:
         inplace_str = 'inplace=True' if self.inplace else ''
         return inplace_str
-",1
-401,401,torch.logical_not,,0
-402,402,torch.ravel,,0
-403,403,torch.i0,"Tensor i0(const Tensor& self) { return unary_op_impl(self, at::i0_out); }",3
+",1,
+401,401,torch.logical_not,,0,
+402,402,torch.ravel,,0,
+403,403,torch.i0,"Tensor i0(const Tensor& self) { return unary_op_impl(self, at::i0_out); }",3,
 404,404,torch.nn.PoissonNLLLoss,"class PoissonNLLLoss(_Loss):
     r""""""Negative log likelihood loss with Poisson distribution of target.
 
@@ -9831,7 +9831,7 @@
     def forward(self, log_input: Tensor, target: Tensor) -> Tensor:
         return F.poisson_nll_loss(log_input, target, log_input=self.log_input, full=self.full,
                                   eps=self.eps, reduction=self.reduction)
-",1
+",1,
 405,405,torch.nn.Hardsigmoid,"class Hardsigmoid(Module):
     r""""""Applies the Hardsigmoid function element-wise.
 
@@ -9869,7 +9869,7 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.hardsigmoid(input, self.inplace)
-",1
+",1,
 406,406,torch.nn.ELU,"class ELU(Module):
     r""""""Applies the Exponential Linear Unit (ELU) function, element-wise, as described
     in the paper: `Fast and Accurate Deep Network Learning by Exponential Linear
@@ -9914,7 +9914,7 @@
     def extra_repr(self) -> str:
         inplace_str = ', inplace=True' if self.inplace else ''
         return 'alpha={}{}'.format(self.alpha, inplace_str)
-",1
+",1,
 407,407,torch.nn.functional.interpolate,"def interpolate(input: Tensor, size: Optional[int] = None, scale_factor: Optional[List[float]] = None, mode: str = 'nearest', align_corners: Optional[bool] = None, recompute_scale_factor: Optional[bool] = None, antialias: bool = False) -> Tensor:  # noqa: F811
     r""""""Down/up samples the input to either the given :attr:`size` or the given
     :attr:`scale_factor`
@@ -10130,10 +10130,10 @@
         "" (got {}D) for the modes: nearest | linear | bilinear | bicubic | trilinear | area | nearest-exact""
         "" (got {})"".format(input.dim(), mode)
     )
-",1
-408,408,torch.hstack,,0
-409,409,torch.ger,,0
-410,410,torch.atan,"Tensor atan(const Tensor& self) { return unary_op_impl_float(self, atan_stub); }",3
+",1,
+408,408,torch.hstack,,0,
+409,409,torch.ger,,0,
+410,410,torch.atan,"Tensor atan(const Tensor& self) { return unary_op_impl_float(self, atan_stub); }",3,
 411,411,torch.atleast_2d,"def atleast_2d(*tensors):
     r""""""
     Returns a 2-dimensional view of each input tensor with zero dimensions.
@@ -10170,7 +10170,7 @@
     if len(tensors) == 1:
         tensors = tensors[0]
     return _VF.atleast_2d(tensors)  # type: ignore[attr-defined]
-",1
+",1,
 412,412,torch.nn.PReLU,"class PReLU(Module):
     r""""""Applies the element-wise function:
 
@@ -10235,10 +10235,10 @@
 
     def extra_repr(self) -> str:
         return 'num_parameters={}'.format(self.num_parameters)
-",1
-413,413,torch.unsqueeze,,0
-414,414,torch.ones,,0
-415,415,torch.lgamma,"Tensor lgamma(const Tensor& self) { return unary_op_impl_float(self, lgamma_stub); }",3
+",1,
+413,413,torch.unsqueeze,,0,
+414,414,torch.ones,,0,
+415,415,torch.lgamma,"Tensor lgamma(const Tensor& self) { return unary_op_impl_float(self, lgamma_stub); }",3,
 416,416,torch.nn.RNNCell,"class RNNCell(RNNCellBase):
     r""""""An Elman RNN cell with tanh or ReLU non-linearity.
 
@@ -10335,7 +10335,7 @@
             ret = ret.squeeze(0)
 
         return ret
-",1
+",1,
 417,417,torch.nn.MaxUnpool3d,"class MaxUnpool3d(_MaxUnpoolNd):
     r""""""Computes a partial inverse of :class:`MaxPool3d`.
 
@@ -10404,7 +10404,7 @@
     def forward(self, input: Tensor, indices: Tensor, output_size: Optional[List[int]] = None) -> Tensor:
         return F.max_unpool3d(input, indices, self.kernel_size, self.stride,
                               self.padding, output_size)
-",1
+",1,
 418,418,torch.nn.functional.hardsigmoid,"def hardsigmoid(input: Tensor, inplace: bool = False) -> Tensor:
     r""""""Applies the element-wise function
 
@@ -10425,7 +10425,7 @@
     if inplace:
         return torch._C._nn.hardsigmoid_(input)
     return torch._C._nn.hardsigmoid(input)
-",1
+",1,
 419,419,torch.chain_matmul,"def chain_matmul(*matrices, out=None):
     r""""""Returns the matrix product of the :math:`N` 2-D tensors. This product is efficiently computed
     using the matrix chain order algorithm which selects the order in which incurs the lowest cost in terms
@@ -10471,9 +10471,9 @@
         return _VF.chain_matmul(matrices)  # type: ignore[attr-defined]
     else:
         return _VF.chain_matmul(matrices, out=out)  # type: ignore[attr-defined]
-",1
-420,420,torch.empty_strided,,0
-421,421,torch.igamma,,0
+",1,
+420,420,torch.empty_strided,,0,
+421,421,torch.igamma,,0,
 422,422,torch.nn.functional.fold,"def fold(
     input: Tensor, output_size: BroadcastingList2[int],
     kernel_size: BroadcastingList2[int],
@@ -10496,12 +10496,12 @@
     return torch._C._nn.col2im(
         input, _pair(output_size), _pair(kernel_size), _pair(dilation), _pair(padding), _pair(stride)
     )
-",1
-423,423,torch.prod,,0
-424,424,torch.isclose,,0
-425,425,torch.gcd,,0
-426,426,torch.rot90,,0
-427,427,torch.div,,0
+",1,
+423,423,torch.prod,,0,
+424,424,torch.isclose,,0,
+425,425,torch.gcd,,0,
+426,426,torch.rot90,,0,
+427,427,torch.div,,0,
 428,428,torch.nn.Threshold,"class Threshold(Module):
     r""""""Thresholds each element of the input Tensor.
 
@@ -10550,12 +10550,12 @@
         return 'threshold={}, value={}{}'.format(
             self.threshold, self.value, inplace_str
         )
-",1
-429,429,torch.nn.functional.leaky_relu_,,0
-430,430,torch.frac,"Tensor frac(const Tensor& self) { return unary_op_impl(self, at::frac_out); }",3
-431,431,torch.addcmul,,0
-432,432,torch.tril,,0
-433,433,torch.histc,,0
+",1,
+429,429,torch.nn.functional.leaky_relu_,,0,
+430,430,torch.frac,"Tensor frac(const Tensor& self) { return unary_op_impl(self, at::frac_out); }",3,
+431,431,torch.addcmul,,0,
+432,432,torch.tril,,0,
+433,433,torch.histc,,0,
 434,434,torch.nn.AvgPool3d,"class AvgPool3d(_AvgPoolNd):
     r""""""Applies a 3D average pooling over an input signal composed of several input
     planes.
@@ -10646,8 +10646,8 @@
         self.__dict__.setdefault('padding', 0)
         self.__dict__.setdefault('ceil_mode', False)
         self.__dict__.setdefault('count_include_pad', True)
-",1
-435,435,torch.imag,,0
+",1,
+435,435,torch.imag,,0,
 436,436,torch.nn.BatchNorm2d,"class BatchNorm2d(_BatchNorm):
     r""""""Applies Batch Normalization over a 4D input (a mini-batch of 2D inputs
     with additional channel dimension) as described in the paper
@@ -10718,9 +10718,9 @@
     def _check_input_dim(self, input):
         if input.dim() != 4:
             raise ValueError(""expected 4D input (got {}D input)"".format(input.dim()))
-",1
-437,437,torch.ne,"Tensor ne(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::ne_out)); }",3
-438,438,torch.bucketize,,0
+",1,
+437,437,torch.ne,"Tensor ne(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::ne_out)); }",3,
+438,438,torch.bucketize,,0,
 439,439,torch.nn.functional.elu,"def elu(input: Tensor, alpha: float = 1.0, inplace: bool = False) -> Tensor:
     r""""""Applies the Exponential Linear Unit (ELU) function element-wise.
 
@@ -10733,8 +10733,8 @@
     else:
         result = torch._C._nn.elu(input, alpha)
     return result
-",1
-440,440,torch.triangular_solve,,0
+",1,
+440,440,torch.triangular_solve,,0,
 441,441,torch.nn.functional.softsign,"def softsign(input):
     r""""""softsign(input) -> Tensor
 
@@ -10745,8 +10745,8 @@
     if has_torch_function_unary(input):
         return handle_torch_function(softsign, (input,), input)
     return input / (input.abs() + 1)
-",1
-442,442,torch.real,,0
+",1,
+442,442,torch.real,,0,
 443,443,torch.nn.Conv2d,"class Conv2d(_ConvNd):
     __doc__ = r""""""Applies a 2D convolution over an input signal composed of several input
     planes.
@@ -10895,8 +10895,8 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return self._conv_forward(input, self.weight, self.bias)
-",1
-444,444,torch.trunc,"Tensor trunc(const Tensor& self) { return unary_op_impl(self, at::trunc_out); }",3
+",1,
+444,444,torch.trunc,"Tensor trunc(const Tensor& self) { return unary_op_impl(self, at::trunc_out); }",3,
 445,445,torch.nn.CTCLoss,"class CTCLoss(_Loss):
     r""""""The Connectionist Temporal Classification loss.
 
@@ -11041,9 +11041,9 @@
     def forward(self, log_probs: Tensor, targets: Tensor, input_lengths: Tensor, target_lengths: Tensor) -> Tensor:
         return F.ctc_loss(log_probs, targets, input_lengths, target_lengths, self.blank, self.reduction,
                           self.zero_infinity)
-",1
-446,446,torch.matrix_exp,,0
-447,447,torch.atan2,,0
+",1,
+446,446,torch.matrix_exp,,0,
+447,447,torch.atan2,,0,
 448,448,torch.nn.functional.adaptive_max_pool2d,"    def fn(*args, **kwargs):
         dispatch_flag = False
         if arg_name in kwargs:
@@ -11055,9 +11055,9 @@
             return if_true(*args, **kwargs)
         else:
             return if_false(*args, **kwargs)
-",1
-449,449,torch.bitwise_and,,0
-450,450,torch.logical_and,"Tensor logical_and(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::logical_and_out)); }",3
+",1,
+449,449,torch.bitwise_and,,0,
+450,450,torch.logical_and,"Tensor logical_and(const Tensor& self, const Tensor& other) { return comparison_op(self, other, static_cast<OutFunc>(at::logical_and_out)); }",3,
 451,451,torch.nn.Linear,"class Linear(Module):
     r""""""Applies a linear transformation to the incoming data: :math:`y = xA^T + b`
 
@@ -11130,8 +11130,8 @@
         return 'in_features={}, out_features={}, bias={}'.format(
             self.in_features, self.out_features, self.bias is not None
         )
-",1
-452,452,torch.empty,,0
+",1,
+452,452,torch.empty,,0,
 453,453,torch.nn.ReplicationPad1d,"class ReplicationPad1d(_ReplicationPadNd):
     r""""""Pads the input tensor using replication of the input boundary.
 
@@ -11171,10 +11171,10 @@
     def __init__(self, padding: _size_2_t) -> None:
         super().__init__()
         self.padding = _pair(padding)
-",1
-454,454,torch.squeeze,,0
-455,455,torch.triu,,0
-456,456,torch.clone,,0
+",1,
+454,454,torch.squeeze,,0,
+455,455,torch.triu,,0,
+456,456,torch.clone,,0,
 457,457,torch.nn.RNN,"class RNN(RNNBase):
     r""""""Applies a multi-layer Elman RNN with :math:`\tanh` or :math:`\text{ReLU}` non-linearity to an
     input sequence.
@@ -11373,7 +11373,7 @@
             hidden = hidden.squeeze(1)
 
         return output, self.permute_hidden(hidden, unsorted_indices)
-",1
+",1,
 458,458,torch.einsum,"def einsum(*args: Any) -> Tensor:
     r""""""einsum(equation, *operands) -> Tensor
 
@@ -11569,7 +11569,7 @@
         # flatten path for dispatching to C++
         path = [item for pair in tupled_path for item in pair]
     return _VF.einsum(equation, operands, path=path)  # type: ignore[attr-defined]
-",1
+",1,
 459,459,torch.nn.Softmax,"class Softmax(Module):
     r""""""Applies the Softmax function to an n-dimensional input Tensor
     rescaling them so that the elements of the n-dimensional output Tensor
@@ -11625,7 +11625,7 @@
 
     def extra_repr(self) -> str:
         return 'dim={dim}'.format(dim=self.dim)
-",1
+",1,
 460,460,torch.nn.functional.celu,"def celu(input: Tensor, alpha: float = 1.0, inplace: bool = False) -> Tensor:
     r""""""celu(input, alpha=1., inplace=False) -> Tensor
 
@@ -11641,10 +11641,10 @@
     else:
         result = torch.celu(input, alpha)
     return result
-",1
-461,461,torch.conj,,0
-462,462,torch.stack,,0
-463,463,torch.logit,,0
+",1,
+461,461,torch.conj,,0,
+462,462,torch.stack,,0,
+463,463,torch.logit,,0,
 464,464,torch.nn.ConstantPad3d,"class ConstantPad3d(_ConstantPadNd):
     r""""""Pads the input tensor boundaries with a constant value.
 
@@ -11683,7 +11683,7 @@
     def __init__(self, padding: _size_6_t, value: float) -> None:
         super().__init__(value)
         self.padding = _ntuple(6)(padding)
-",1
+",1,
 465,465,torch.nn.Identity,"class Identity(Module):
     r""""""A placeholder identity operator that is argument-insensitive.
 
@@ -11709,7 +11709,7 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return input
-",1
+",1,
 466,466,torch.nn.AdaptiveAvgPool3d,"class AdaptiveAvgPool3d(_AdaptiveAvgPoolNd):
     r""""""Applies a 3D adaptive average pooling over an input signal composed of several input planes.
 
@@ -11747,5 +11747,5 @@
 
     def forward(self, input: Tensor) -> Tensor:
         return F.adaptive_avg_pool3d(input, self.output_size)
-",1
-467,467,torch.nn.functional.hardshrink,,0
+",1,
+467,467,torch.nn.functional.hardshrink,,0,
